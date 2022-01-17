@@ -1,0 +1,31 @@
+.cont{
+    width: 95%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap:2%;
+    margin-top: 3%;
+}
+.cont>div{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    font-family: "Roboto","Arial",sans-serif;
+    color:white;
+}
+.cont>div:hover{
+    cursor: pointer;
+}
+.cont>div>img{
+    width:100%;
+}
+.cont>div>p{
+    margin-left: 2%;
+}
+.cont>div>p:nth-child(2){
+    line-height: 22px;
+}
+.cont>div>p:nth-child(3){
+    font-size: small;
+}
+.cont>div>p:nth-child(3):hover{
+    font-weight: bold;
+}

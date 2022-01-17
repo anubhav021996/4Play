@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>4Play</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+        <link rel="stylesheet" href="./styles/navBar.css">
+        <link rel="stylesheet" href="./styles/signup.css">
+    </head>
+    <body>
+        <div class="nav"></div>
+        <div class="cont">
+            <form>
+                <center><h1>Sign Up</h1></center>
+                <input type="text" class="uname" placeholder="Enter your name"><br><br>
+                <input type="email" class="email" placeholder="Enter your email"><br><br>
+                <input type="text" class="username" placeholder="Create your username"><br><br>
+                <input type="number" class="contact" placeholder="Enter your contact number"><br><br>
+                <input type="password" class="pass" placeholder="Create a strong password"><br><br>
+                <textarea class="desc" placeholder="Description"></textarea>
+                <input type="submit" class="submit" value="Sign-up">
+            </form>
+        </div>
+    </body>
+</html>
+
+<script type="module">
+    import {navBar,appendName} from "./components/navBar.js";
+    document.querySelector(".nav").innerHTML=navBar();
+
+    appendName();
+
+
+    document.querySelector("form").addEventListener("submit",addUser);
+
+    function users(){
+        this.name = document.querySelector(".uname").value;
+        this.email = document.querySelector(".email").value;
+        this.password = document.querySelector(".pass").value;
+        this.username = document.querySelector(".username").value;
+        this.mobile = document.querySelector(".contact").value;
+        this.description = document.querySelector(".desc").value;
+    }
+
+    
+    async function addUser(event){
+        event.preventDefault();
+        var user = new users();
+        
+        if(user.name==""||user.mobile==""||user.email==""||user.password==""||user.username==""||user.description==""){
+            alert("Enter all details");
+        }
+        else{
+            var reg_data = JSON.stringify(user);
+            var url = `https://masai-api-mocker.herokuapp.com/auth/register`;
+            var res = await fetch(url,{
+                method: "POST",
+                body: reg_data,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+
+            let data = await res.json();
+            console.log(data);
+            alert(data.message);
+            if(data.error==false){
+                window.location.href="login.html";    
+            }
+        }
+    }
+
+    var searchV = document.querySelector(".searchV").addEventListener("click",()=>{
+        var name = document.querySelector(".name").value;
+        localStorage.setItem("name",JSON.stringify(name));
+        window.location.href="search.html";
+    });
+</script>

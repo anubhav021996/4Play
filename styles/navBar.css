@@ -1,0 +1,91 @@
+body{
+    background-color: #202020;
+}
+nav{
+    display: flex;
+    height: 6%;
+    width:95%;
+    margin: auto;
+    margin-top: 1%;
+    border-bottom: solid 1px #373737;
+    padding-bottom: 1%;
+}
+.search{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    margin: auto;
+}
+.name{
+    background-color: #121212;
+    border: transparent;
+    color: white;
+    padding: 2%;
+    height: 100%;
+    width: 90%;
+    font-size: 100%;
+}
+.search>button{
+    background-color: #313131;
+    border: transparent;
+    height: 100%;
+    width: 10%;
+    color:white;
+    font-size: large;
+    margin-left: 0.5%;
+}
+.fa{
+    background-color: #202020;
+    border: transparent;
+    color: white;
+    font-size: large;
+    padding-left: 2%;
+}
+button:hover{
+    cursor: pointer;
+}
+.login:hover{
+    cursor: pointer;
+}
+.dropdown{
+    color: white;
+    margin-right: 4%;
+    margin-left: 2%;
+}
+.login{
+    border: transparent;
+    background-color: #121212;
+    color:white;
+    font-size: 100%;
+    padding: 20%;
+    padding-left: 52%;
+    padding-right: 52%;
+    margin-top: 10%;
+}
+
+.droplist>div{
+    border: transparent;
+    border-bottom: solid #121212;
+    height: 70%;
+    width: 180%;
+    background-color: #313131;
+    color: white;
+    padding-bottom: 12%;    
+}
+.droplist>div>p{
+    margin-top: 1%;
+}
+.droplist>div>p:hover{
+    cursor: pointer;
+}
+.droplist{
+    display: none;
+}
+.show{
+    display: block;
+}
+.signout{
+    font-size: larger;
+    margin-left: 25%;
+    padding-top: 4%;
+}

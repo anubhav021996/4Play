@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>4Play</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+        <link rel="stylesheet" href="./styles/navBar.css">
+        <link rel="stylesheet" href="./styles/signup.css">
+        <style>
+            p{
+                font-size: larger;
+                margin: auto;
+                margin-left: 30%;
+                margin-top: 20%;
+            }
+            #link{
+                margin-top: 1%;
+                margin-left: 29%;
+                color: teal;
+            }
+            a{
+                text-decoration: none;
+            }
+            form>input{
+                margin-top: 4%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="nav"></div>
+        <div class="cont">
+            <form>
+                <center><h1>Login</h1></center>
+                <input type="text" class="username" placeholder="Enter your username"><br><br>
+                <input type="password" class="pass" placeholder="Enter your password"><br><br>
+                <input type="submit" class="submit" value="Login">
+            </form>
+            <p>Don't have account?</p>
+            <a href="signup.html"><p id="link">Create a new account</p></a>
+        </div>
+    </body>
+</html>
+
+<script type="module">
+    import {navBar,appendName} from "./components/navBar.js";
+    document.querySelector(".nav").innerHTML=navBar();
+
+    appendName();
+
+    function users(){
+        this.password = document.querySelector(".pass").value;
+        this.username = document.querySelector(".username").value;
+    }
+
+    document.querySelector("form").addEventListener("submit",verifyUser);
+
+    async function verifyUser(event){
+        event.preventDefault();
+        var user = new users();
+        var login_data = JSON.stringify(user);
+        var url = `https://masai-api-mocker.herokuapp.com/auth/login`;
+        var res = await fetch(url,{
+            method: "POST",
+            body: login_data,
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        var data = await res.json();
+        console.log(data);
+
+        if(data.error){
+            alert(data.message);
+        }
+        else{
+            getUser(user.username,data.token);
+            alert("Login Successful");
+            window.location.href="index.html";
+        }
+    }
+
+    var searchV = document.querySelector(".searchV").addEventListener("click",()=>{
+        var name = document.querySelector(".name").value;
+        localStorage.setItem("name",JSON.stringify(name));
+        window.location.href="search.html";
+    });
+
+    async function getUser(x,y){
+        var url = `https://masai-api-mocker.herokuapp.com/user/${x}`;
+        var res = await fetch(url,{
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${y}`,
+            },
+        });
+        var data = await res.json();
+        console.log(data);
+        var login = data;
+        localStorage.setItem("login",JSON.stringify(login));
+    }
+</script>

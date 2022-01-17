@@ -1,0 +1,24 @@
+.cont{
+    background-color: #121212;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 85%;
+    width:30%;
+    margin: auto;
+    color: white;
+}
+h1{
+    padding-top: 5%;
+}
+form>input,textarea{
+    color: white;
+    margin-left: 10%;
+    margin-top: 1%;
+    height: 8%;
+    width:80%;
+    background-color: #202020;
+}
+.submit{
+    margin-top: 5%;
+    color:white;
+    font-size: 18px;
+}

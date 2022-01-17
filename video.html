@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>4Play</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+        <link rel="stylesheet" href="./styles/navBar.css">
+        <style>
+            .cont{
+                height:90%;
+                width:100%;
+                color:white;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+            .cont>div>h2,.cont>div>p{
+                margin-left: 2%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="nav"></div>
+        <div class="cont"></div>
+    </body>
+</html>
+
+<script type="module">
+    import {navBar,appendName} from "./components/navBar.js";
+    document.querySelector(".nav").innerHTML=navBar();
+
+    appendName();
+
+
+    var elem = JSON.parse(localStorage.getItem("video"));
+    var div = document.createElement("div");
+    let {id:{videoId}} = elem;
+    let iframe=document.createElement("iframe");
+    iframe.src=`https://www.youtube.com/embed/${videoId}`;
+    iframe.height="80%";
+    iframe.width="100%";
+    iframe.frameBorder="transparent";
+    iframe.setAttribute("allowfullscreen",true);
+    let {snippet:{title}} = elem;
+    let name=document.createElement("h2");
+    name.textContent=title;
+    let {snippet:{channelTitle}} = elem;
+    let cname=document.createElement("p");
+    cname.textContent=channelTitle;
+    div.append(iframe,name,cname);
+    document.querySelector(".cont").append(div);
+
+
+    var searchV = document.querySelector(".searchV").addEventListener("click",()=>{
+        var name = document.querySelector(".name").value;
+        localStorage.setItem("name",JSON.stringify(name));
+        window.location.href="search.html";
+    });
+</script>

@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>4Play</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+        <link rel="stylesheet" href="./styles/navBar.css">
+        <link rel="stylesheet" href="./styles/index.css">
+    </head>
+    <body>
+        <div class="nav"></div>
+        <div class="cont"></div>
+    </body>
+</html>
+
+<script type="module">
+    import {navBar,appendName} from "./components/navBar.js";
+    document.querySelector(".nav").innerHTML=navBar();
+
+    appendName();
+
+    import appendVideo from "./scripts/index.js";
+
+    var cont=document.querySelector(".cont");
+
+    var name = JSON.parse(localStorage.getItem("name"));
+    async function youtube(){
+        let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?type=video&part=snippet&maxResults=20&q=${name}&key=AIzaSyBjy2G_6GZvv-6iKnmdlDaN3mIlkei_yfA`)
+        let data = await res.json();
+        let fdata = data.items;
+        appendVideo(fdata,cont);
+        console.log(fdata);
+    }
+    youtube();
+
+    var searchV = document.querySelector(".searchV").addEventListener("click",()=>{
+        var name = document.querySelector(".name").value;
+        localStorage.setItem("name",JSON.stringify(name));
+        window.location.href="search.html";
+    });
+</script>
