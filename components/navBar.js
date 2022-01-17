@@ -1,6 +1,6 @@
 var navBar = () => {
     return `<nav>
-    <a href="index.html"><img src="https://scontent.fknu1-1.fna.fbcdn.net/v/t39.30808-6/269706653_4515196808592160_7555835618677047329_n.jpg?_nc_cat=100&_nc_rgb565=1&ccb=1-5&_nc_sid=730e14&_nc_ohc=mTK_1i03wqoAX90uCxA&_nc_ht=scontent.fknu1-1.fna&oh=00_AT8l2npIeFu1wKVhbrkobro0TIsXI0tg2xUdGRdg5i-CUQ&oe=61E5208E" height="100%" width="100%"></a>
+    <a href="index.html"><img src="./images/logo.png" height="100%" width="100%"></a>
     <div class="search">
         <input type="text" class="name" placeholder="Search">
         <button class="searchV"><i class="fas fa-search"></i></button>
