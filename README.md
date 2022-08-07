@@ -7,9 +7,12 @@
 <h3>You can see live <a href="https://4play.vercel.app/index.html">here</a></h3>
 <h3>Landing Page</h3>
 <img src="https://github.com/anubhav021996/Images/blob/main/4Play/Screenshot%20(100).png?raw=true" alt=""></img>
-<img src="https://miro.medium.com/max/1400/1*qbNf_ZZeIlS_pOIcuwDcVQ.png" alt=""></img>
-<img src="https://miro.medium.com/max/1400/1*nviW42wceA3dwDwA_cVdBA.png" alt=""></img>
-<img src="https://miro.medium.com/max/1400/1*4QAlvpE-LSGub7FQOdTpOA.png" alt=""></img>
+<h3>Video Streaming</h3>
+<img src="https://github.com/anubhav021996/Images/blob/main/4Play/Screenshot%20(106).png?raw=true" alt=""></img>
+<h3>Signup Page</h3>
+<img src="https://github.com/anubhav021996/Images/blob/main/4Play/Screenshot%20(107).png?raw=true" alt=""></img>
+<h3>Login Page</h3>
+<img src="https://github.com/anubhav021996/Images/blob/main/4Play/Screenshot%20login.png?raw=true" alt=""></img>
 
 
 <h3>Tech Stack:</h3>
